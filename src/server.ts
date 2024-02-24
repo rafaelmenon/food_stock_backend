@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import routes from "./routes";
+import serverless from "serverless-http";
 
 dotenv.config();
 
@@ -15,3 +16,5 @@ routes(app);
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
 });
+
+export const handler = serverless(app);
